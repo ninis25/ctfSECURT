@@ -1,0 +1,18 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <radialGradient id="tiktok" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+            <stop offset="0%" style="stop-color:#f00;stop-opacity:1">
+                <animate attributeName="stop-color" values="#f00;#0ff;#f0f;#f00" dur="3s" repeatCount="indefinite"/>
+            </stop>
+            <stop offset="100%" style="stop-color:#0ff;stop-opacity:1">
+                <animate attributeName="stop-color" values="#0ff;#f0f;#f00;#0ff" dur="3s" repeatCount="indefinite"/>
+            </stop>
+        </radialGradient>
+    </defs>
+    <circle cx="50" cy="50" r="30" fill="url(#tiktok)">
+        <animate attributeName="r" values="30;35;30" dur="1s" repeatCount="indefinite"/>
+    </circle>
+    <text x="50" y="55" text-anchor="middle" fill="#fff" font-family="monospace" font-size="10">TikTok
+        <animate attributeName="font-size" values="10;12;10" dur="1s" repeatCount="indefinite"/>
+    </text>
+</svg>

@@ -1,0 +1,353 @@
+/* public/css/style.css */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+:root {
+    --neon-pink: #ff006e;
+    --neon-blue: #00fff5;
+    --neon-purple: #b300ff;
+    --neon-yellow: #fff200;
+    --background: #000;
+}
+
+body {
+    background-color: var(--background);
+    color: #fff;
+    font-family: 'Press Start 2P', cursive;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* Titre et effets */
+.title {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: var(--neon-pink);
+    text-shadow: 0 0 10px var(--neon-pink);
+    position: relative;
+}
+
+.glitch {
+    position: relative;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 var(--neon-blue);
+    animation: glitch-1 2s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+    left: -2px;
+    text-shadow: 2px 0 var(--neon-pink);
+    animation: glitch-2 3s infinite linear alternate-reverse;
+}
+
+/* Boîte de memes */
+.meme-box {
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid var(--neon-purple);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 1.2em;
+    animation: neonPulse 2s infinite;
+}
+
+/* Cartes de challenge */
+.challenge-card {
+    background: rgba(10, 10, 10, 0.9);
+    border: 1px solid var(--neon-blue);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+}
+
+.challenge-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 255, 255, 0.2);
+}
+
+.challenge-content {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.preview-gif {
+    width: 150px;
+    height: 150px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.preview-gif svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Indices */
+.hints {
+    background: rgba(0, 0, 0, 0.5);
+    border-left: 4px solid var(--neon-yellow);
+    padding: 15px;
+    margin: 15px 0;
+    font-size: 0.9em;
+}
+
+.hints ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.hints li {
+    margin: 10px 0;
+    padding-left: 20px;
+    position: relative;
+}
+
+.hints li::before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    color: var(--neon-yellow);
+}
+
+/* Boutons */
+.download-btn {
+    display: inline-block;
+    background: linear-gradient(45deg, var(--neon-pink), var(--neon-purple));
+    color: white;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    margin-top: 15px;
+}
+
+.download-btn::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+            45deg,
+            transparent,
+            transparent 40%,
+            rgba(255, 255, 255, 0.2) 40%,
+            rgba(255, 255, 255, 0.2) 60%,
+            transparent 60%,
+            transparent
+    );
+    transform: rotate(0);
+    animation: shine 3s infinite;
+}
+
+.download-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px var(--neon-pink);
+}
+
+.btn-text {
+    position: relative;
+    z-index: 1;
+}
+
+.btn-subtext {
+    display: block;
+    font-size: 0.7em;
+    opacity: 0.8;
+}
+
+/* Panel de vérification */
+.verify-panel {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid var(--neon-blue);
+    z-index: 100;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+}
+
+.flag-input {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--neon-blue);
+    padding: 10px 15px;
+    color: white;
+    font-family: 'Courier New', monospace;
+    border-radius: 5px;
+    width: 300px;
+}
+
+.verify-btn {
+    background: var(--neon-blue);
+    border: none;
+    padding: 10px 20px;
+    color: black;
+    font-family: 'Press Start 2P', cursive;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.verify-btn:hover {
+    background: var(--neon-pink);
+    transform: scale(1.05);
+}
+
+/* Notifications */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    border-radius: 5px;
+    animation: slideIn 0.5s ease-out;
+    z-index: 1000;
+}
+
+.success {
+    background: rgba(0, 255, 0, 0.2);
+    border: 1px solid #00ff00;
+    color: #00ff00;
+}
+
+.error {
+    background: rgba(255, 0, 0, 0.2);
+    border: 1px solid #ff0000;
+    color: #ff0000;
+}
+
+.fade-out {
+    animation: fadeOut 0.5s ease-out forwards;
+}
+
+/* Animations */
+@keyframes glitch-1 {
+    0% { clip-path: inset(80% 0 0 0); }
+    20% { clip-path: inset(20% 0 60% 0); }
+    40% { clip-path: inset(60% 0 20% 0); }
+    60% { clip-path: inset(0 0 80% 0); }
+    80% { clip-path: inset(40% 0 40% 0); }
+    100% { clip-path: inset(20% 0 60% 0); }
+}
+
+@keyframes glitch-2 {
+    0% { clip-path: inset(20% 0 60% 0); }
+    20% { clip-path: inset(60% 0 20% 0); }
+    40% { clip-path: inset(0 0 80% 0); }
+    60% { clip-path: inset(80% 0 0 0); }
+    80% { clip-path: inset(20% 0 60% 0); }
+    100% { clip-path: inset(60% 0 20% 0); }
+}
+
+@keyframes neonPulse {
+    0%, 100% { box-shadow: 0 0 10px var(--neon-purple); }
+    50% { box-shadow: 0 0 20px var(--neon-purple); }
+}
+
+@keyframes shine {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+/* Supprime toute position fixe ou absolute */
+.verify-panel {
+    background: rgba(10, 10, 10, 0.9);
+    border: 1px solid var(--neon-blue);
+    border-radius: 15px;
+    padding: 25px;
+    margin: 30px 0;  /* Marge verticale pour l'espacement */
+    width: 100%;     /* Largeur comme les autres cartes */
+}
+
+/* Reste du styling comme les challenge-card */
+.verify-panel h3 {
+    text-align: center;
+    margin: 0 0 20px 0;
+    color: var(--neon-blue);
+    font-size: 1.2em;
+}
+
+.input-group {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.flag-input {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--neon-blue);
+    padding: 15px;
+    color: white;
+    font-family: 'Courier New', monospace;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 1.1em;
+}
+
+.verify-btn {
+    background: var(--neon-blue);
+    border: none;
+    padding: 15px 30px;
+    color: black;
+    font-family: 'Press Start 2P', cursive;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    white-space: nowrap;
+}

@@ -1,0 +1,12 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <rect x="20" y="20" width="60" height="60" fill="#666">
+        <animate attributeName="fill" values="#666;#888;#666" dur="1s" repeatCount="indefinite"/>
+    </rect>
+    <circle cx="35" cy="45" r="5" fill="#0ff">
+        <animate attributeName="r" values="5;6;5" dur="0.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="65" cy="45" r="5" fill="#0ff">
+        <animate attributeName="r" values="5;6;5" dur="0.5s" repeatCount="indefinite"/>
+    </circle>
+    <rect x="30" y="65" width="40" height="5" fill="#0ff"/>
+</svg>
